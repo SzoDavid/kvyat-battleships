@@ -1,0 +1,6 @@
+.idea/
+devserver/
+templates/
+db.sqlite3
+devserver.iml
+manage.py
