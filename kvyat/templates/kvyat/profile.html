@@ -1,0 +1,14 @@
+{% extends "kvyat/base/base.html" %}
+
+{% block title %}{% block pagetitle %}{{ profile.username }}{% endblock %}{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Points:</h2>
+        <p>{{ points }}</p>
+        <h2 class="next_title">Games Won:</h2>
+        <p>{{ games_won }}/{{ games_played }}</p>
+        <h2 class="next_title">Weeks Since Joined:</h2>
+        <p>{{ weeks_since_joined }}</p>
+    </div>
+{% endblock %}

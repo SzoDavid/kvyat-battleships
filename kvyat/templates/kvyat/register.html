@@ -1,0 +1,23 @@
+{% extends "kvyat/base/base.html" %}
+
+{% block title %}{% block pagetitle %}Registration{% endblock %}{% endblock %}
+
+{% block content %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username</label><br>
+            <input id="username" name="username" type="text" required value="{{ username }}"><br>
+            <label for="email">Email address</label><br>
+            <input id="email" name="email" type="email" required value="{{ email }}"> <br>
+            <label for="password">Password</label><br>
+            <input id="password" name="password" type="password" required><br>
+            <label for="password_again">Password again</label><br>
+            <input id="password_again" name="password_again" type="password" required><br>
+            <input type="submit" value="Sign Up">
+        </form>
+        {% if error %}
+            <p style="color: red">{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

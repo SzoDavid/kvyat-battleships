@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvyat | {% block title %}Torpedo game{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'kvyat/style.css' %}">
+</head>
+<body>
+    <div class="bg-image"></div>
+    {% block sidebar %}
+    <div id="sidebar">
+        <h1>Kvyat</h1>
+        <ul>
+            <li><p {% if selected == 'create' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:create' %}'">Create room</p></li>
+            <li><p {% if selected == 'top' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:top' %}'">Top players</p></li>
+            <li><p {% if selected == 'about' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:about' %}'">About</p></li>
+            <li><p {% if selected == 'creator' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:creator' %}'">Creator</p></li>
+            <li><p {% if selected == 'contact' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:contact' %}'">Contact</p></li>
+            {% if user.is_authenticated %}
+            <li><p {% if selected == 'profile' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:profile' user.pk %}'">{{ user.username }}</p></li>
+            <li><p onclick="window.location.href = '{% url 'kvyat:logout_user' user.pk %}'">Log out</p></li>
+            {% else %}
+            <li><p {% if selected == 'login' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:login' %}'">Login</p></li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endblock %}
+    <div id="page">
+        <div id="page_title">
+            <h1>{% block pagetitle %}{% endblock %}</h1>
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "kvyat/base/base.html" %}
+
+{% block title %}{% block pagetitle %}About{% endblock %}{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>The Game</h2>
+        <p>Kvyat is an online battleships game. If you don't know how to play it... <br> I don't even know what to say...</p>
+
+        <h2 class="next_title">The name</h2>
+        <p>The hungarian name of battleships is <i>torpedó</i>, so the name Kvyat came from the torpedo, <a href="https://www.youtube.com/watch?v=CU5PGtjOev0" target="_blank">Daniil Kvyat</a>.</p>
+
+        <h2 class="next_title">Technical informations</h2>
+        <p>The application was made in django and vue. It's hosted using gunicorn and nginx on a Raspberry Pi model 4 B+.</p>
+        <a href="">Source code</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "kvyat/base/room_base.html" %}
+
+{% block content %}
+    <h1>You`re about to join room {{ room_id }}!</h1>
+    <div class="inner-content">
+        <form method="post" action="">
+            {% csrf_token %}
+            <label for="password">Type in the password your friend has sent to you!</label>
+            <input id="password" type="password" required><br>
+            <input type="submit" value="Join">
+        </form>
+    </div>
+{% endblock %}

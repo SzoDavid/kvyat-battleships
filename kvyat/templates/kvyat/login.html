@@ -1,0 +1,33 @@
+{% extends "kvyat/base/base.html" %}
+
+{% block title %}{% block pagetitle %}Log In{% endblock %}{% endblock %}
+
+{% block content %}
+    <div>
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+            {% else %}
+                <p>Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'kvyat:login_user' %}">
+            {% csrf_token %}
+            {{ form.username.label_tag }}<br>
+            {{ form.username }}<br>
+            {{ form.password.label_tag }}<br>
+            {{ form.password }}<br>
+            <input type="submit" value="Login">
+        </form>
+
+        {# Assumes you setup the password_reset view in your URLconf #}
+        {#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
+        <p><a href="{% url 'kvyat:register' %}">Doesn't have an account yet?</a></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "kvyat/base/base.html" %}
+
+{% block title %}{% block pagetitle %}Create Room{% endblock %}{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div style="margin-right: 75px">
+        <form method="post" action="{% url 'kvyat:create_room' %}">
+            {% csrf_token %}
+            <label for="room_password">Room password</label><br>
+            <input id="room_password" type="password" required><br>
+            <label for="room_password_again">Password again</label><br>
+            <input id="room_password_again" type="password" required><br>
+            <input type="submit" value="Create">
+        </form>
+    </div>
+    {% endif %}
+    <div>
+        <p>Welcome to Kvyat! Create a room by choosing a password, then send the link to your friend and enjoy the game!</p>
+        {% if not user.is_authenticated %}
+            <p style="color: cornflowerblue">Don't forget to <a href="{% url 'kvyat:login' %}">log in</a> first! If you don't have an account, you can <a href="{% url 'kvyat:register' %}">sing up</a> for free!</p>
+        {% endif %}
+    </div>
+{% endblock %}
