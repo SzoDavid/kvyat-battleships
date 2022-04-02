@@ -15,6 +15,9 @@ class UserData(models.Model):
     def points(self):
         return (self.games_won * 10) / (self.games_played + ((timezone.now() - self.user.date_joined).days / 14) + 1)
 
+    def weeks_since_joined(self):
+        return (timezone.now() - self.user.date_joined).days // 7
+
 
 class Field(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

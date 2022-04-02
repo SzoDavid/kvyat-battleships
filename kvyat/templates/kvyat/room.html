@@ -1,5 +1,307 @@
 {% extends "kvyat/base/room_base.html" %}
 
+{% block head %}
+    {% load static %}
+    <script src="{% static 'kvyat/scripts/room.js' %}"></script>
+{% endblock %}
+
 {% block content %}
-    <p>You`re currently in room {{ room_id }}!</p>
+    <p>You`re playing against {{ room_id }}!</p>
+    <div id="fields">
+        <div id="player">
+            <table>
+                <tr>
+                    <td></td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                    <td>G</td>
+                    <td>H</td>
+                    <td>I</td>
+                    <td>J</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="field" id="p00" onclick="onClick(this)"></td>
+                    <td class="field" id="p01" onclick="onClick(this)"></td>
+                    <td class="field" id="p02" onclick="onClick(this)"></td>
+                    <td class="field" id="p03" onclick="onClick(this)"></td>
+                    <td class="field" id="p04" onclick="onClick(this)"></td>
+                    <td class="field" id="p05" onclick="onClick(this)"></td>
+                    <td class="field" id="p06" onclick="onClick(this)"></td>
+                    <td class="field" id="p07" onclick="onClick(this)"></td>
+                    <td class="field" id="p08" onclick="onClick(this)"></td>
+                    <td class="field" id="p09" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="field" id="p10" onclick="onClick(this)"></td>
+                    <td class="field" id="p11" onclick="onClick(this)"></td>
+                    <td class="field" id="p12" onclick="onClick(this)"></td>
+                    <td class="field" id="p13" onclick="onClick(this)"></td>
+                    <td class="field" id="p14" onclick="onClick(this)"></td>
+                    <td class="field" id="p15" onclick="onClick(this)"></td>
+                    <td class="field" id="p16" onclick="onClick(this)"></td>
+                    <td class="field" id="p17" onclick="onClick(this)"></td>
+                    <td class="field" id="p18" onclick="onClick(this)"></td>
+                    <td class="field" id="p19" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="field" id="p20" onclick="onClick(this)"></td>
+                    <td class="field" id="p21" onclick="onClick(this)"></td>
+                    <td class="field" id="p22" onclick="onClick(this)"></td>
+                    <td class="field" id="p23" onclick="onClick(this)"></td>
+                    <td class="field" id="p24" onclick="onClick(this)"></td>
+                    <td class="field" id="p25" onclick="onClick(this)"></td>
+                    <td class="field" id="p26" onclick="onClick(this)"></td>
+                    <td class="field" id="p27" onclick="onClick(this)"></td>
+                    <td class="field" id="p28" onclick="onClick(this)"></td>
+                    <td class="field" id="p29" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="field" id="p30" onclick="onClick(this)"></td>
+                    <td class="field" id="p31" onclick="onClick(this)"></td>
+                    <td class="field" id="p32" onclick="onClick(this)"></td>
+                    <td class="field" id="p33" onclick="onClick(this)"></td>
+                    <td class="field" id="p34" onclick="onClick(this)"></td>
+                    <td class="field" id="p35" onclick="onClick(this)"></td>
+                    <td class="field" id="p36" onclick="onClick(this)"></td>
+                    <td class="field" id="p37" onclick="onClick(this)"></td>
+                    <td class="field" id="p38" onclick="onClick(this)"></td>
+                    <td class="field" id="p39" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="field" id="p40" onclick="onClick(this)"></td>
+                    <td class="field" id="p41" onclick="onClick(this)"></td>
+                    <td class="field" id="p42" onclick="onClick(this)"></td>
+                    <td class="field" id="p43" onclick="onClick(this)"></td>
+                    <td class="field" id="p44" onclick="onClick(this)"></td>
+                    <td class="field" id="p45" onclick="onClick(this)"></td>
+                    <td class="field" id="p46" onclick="onClick(this)"></td>
+                    <td class="field" id="p47" onclick="onClick(this)"></td>
+                    <td class="field" id="p48" onclick="onClick(this)"></td>
+                    <td class="field" id="p49" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="field" id="p50" onclick="onClick(this)"></td>
+                    <td class="field" id="p51" onclick="onClick(this)"></td>
+                    <td class="field" id="p52" onclick="onClick(this)"></td>
+                    <td class="field" id="p53" onclick="onClick(this)"></td>
+                    <td class="field" id="p54" onclick="onClick(this)"></td>
+                    <td class="field" id="p55" onclick="onClick(this)"></td>
+                    <td class="field" id="p56" onclick="onClick(this)"></td>
+                    <td class="field" id="p57" onclick="onClick(this)"></td>
+                    <td class="field" id="p58" onclick="onClick(this)"></td>
+                    <td class="field" id="p59" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="field" id="p60" onclick="onClick(this)"></td>
+                    <td class="field" id="p61" onclick="onClick(this)"></td>
+                    <td class="field" id="p62" onclick="onClick(this)"></td>
+                    <td class="field" id="p63" onclick="onClick(this)"></td>
+                    <td class="field" id="p64" onclick="onClick(this)"></td>
+                    <td class="field" id="p65" onclick="onClick(this)"></td>
+                    <td class="field" id="p66" onclick="onClick(this)"></td>
+                    <td class="field" id="p67" onclick="onClick(this)"></td>
+                    <td class="field" id="p68" onclick="onClick(this)"></td>
+                    <td class="field" id="p69" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="field" id="p70" onclick="onClick(this)"></td>
+                    <td class="field" id="p71" onclick="onClick(this)"></td>
+                    <td class="field" id="p72" onclick="onClick(this)"></td>
+                    <td class="field" id="p73" onclick="onClick(this)"></td>
+                    <td class="field" id="p74" onclick="onClick(this)"></td>
+                    <td class="field" id="p75" onclick="onClick(this)"></td>
+                    <td class="field" id="p76" onclick="onClick(this)"></td>
+                    <td class="field" id="p77" onclick="onClick(this)"></td>
+                    <td class="field" id="p78" onclick="onClick(this)"></td>
+                    <td class="field" id="p79" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="field" id="p80" onclick="onClick(this)"></td>
+                    <td class="field" id="p81" onclick="onClick(this)"></td>
+                    <td class="field" id="p82" onclick="onClick(this)"></td>
+                    <td class="field" id="p83" onclick="onClick(this)"></td>
+                    <td class="field" id="p84" onclick="onClick(this)"></td>
+                    <td class="field" id="p85" onclick="onClick(this)"></td>
+                    <td class="field" id="p86" onclick="onClick(this)"></td>
+                    <td class="field" id="p87" onclick="onClick(this)"></td>
+                    <td class="field" id="p88" onclick="onClick(this)"></td>
+                    <td class="field" id="p89" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="field" id="p90" onclick="onClick(this)"></td>
+                    <td class="field" id="p91" onclick="onClick(this)"></td>
+                    <td class="field" id="p92" onclick="onClick(this)"></td>
+                    <td class="field" id="p93" onclick="onClick(this)"></td>
+                    <td class="field" id="p94" onclick="onClick(this)"></td>
+                    <td class="field" id="p95" onclick="onClick(this)"></td>
+                    <td class="field" id="p96" onclick="onClick(this)"></td>
+                    <td class="field" id="p97" onclick="onClick(this)"></td>
+                    <td class="field" id="p98" onclick="onClick(this)"></td>
+                    <td class="field" id="p99" onclick="onClick(this)"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="enemy">
+            <table>
+                <tr>
+                    <td></td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                    <td>G</td>
+                    <td>H</td>
+                    <td>I</td>
+                    <td>J</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="field" id="e00" onclick="onClick(this)"></td>
+                    <td class="field" id="e01" onclick="onClick(this)"></td>
+                    <td class="field" id="e02" onclick="onClick(this)"></td>
+                    <td class="field" id="e03" onclick="onClick(this)"></td>
+                    <td class="field" id="e04" onclick="onClick(this)"></td>
+                    <td class="field" id="e05" onclick="onClick(this)"></td>
+                    <td class="field" id="e06" onclick="onClick(this)"></td>
+                    <td class="field" id="e07" onclick="onClick(this)"></td>
+                    <td class="field" id="e08" onclick="onClick(this)"></td>
+                    <td class="field" id="e09" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="field" id="e10" onclick="onClick(this)"></td>
+                    <td class="field" id="e11" onclick="onClick(this)"></td>
+                    <td class="field" id="e12" onclick="onClick(this)"></td>
+                    <td class="field" id="e13" onclick="onClick(this)"></td>
+                    <td class="field" id="e14" onclick="onClick(this)"></td>
+                    <td class="field" id="e15" onclick="onClick(this)"></td>
+                    <td class="field" id="e16" onclick="onClick(this)"></td>
+                    <td class="field" id="e17" onclick="onClick(this)"></td>
+                    <td class="field" id="e18" onclick="onClick(this)"></td>
+                    <td class="field" id="e19" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="field" id="e20" onclick="onClick(this)"></td>
+                    <td class="field" id="e21" onclick="onClick(this)"></td>
+                    <td class="field" id="e22" onclick="onClick(this)"></td>
+                    <td class="field" id="e23" onclick="onClick(this)"></td>
+                    <td class="field" id="e24" onclick="onClick(this)"></td>
+                    <td class="field" id="e25" onclick="onClick(this)"></td>
+                    <td class="field" id="e26" onclick="onClick(this)"></td>
+                    <td class="field" id="e27" onclick="onClick(this)"></td>
+                    <td class="field" id="e28" onclick="onClick(this)"></td>
+                    <td class="field" id="e29" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="field" id="e30" onclick="onClick(this)"></td>
+                    <td class="field" id="e31" onclick="onClick(this)"></td>
+                    <td class="field" id="e32" onclick="onClick(this)"></td>
+                    <td class="field" id="e33" onclick="onClick(this)"></td>
+                    <td class="field" id="e34" onclick="onClick(this)"></td>
+                    <td class="field" id="e35" onclick="onClick(this)"></td>
+                    <td class="field" id="e36" onclick="onClick(this)"></td>
+                    <td class="field" id="e37" onclick="onClick(this)"></td>
+                    <td class="field" id="e38" onclick="onClick(this)"></td>
+                    <td class="field" id="e39" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="field" id="e40" onclick="onClick(this)"></td>
+                    <td class="field" id="e41" onclick="onClick(this)"></td>
+                    <td class="field" id="e42" onclick="onClick(this)"></td>
+                    <td class="field" id="e43" onclick="onClick(this)"></td>
+                    <td class="field" id="e44" onclick="onClick(this)"></td>
+                    <td class="field" id="e45" onclick="onClick(this)"></td>
+                    <td class="field" id="e46" onclick="onClick(this)"></td>
+                    <td class="field" id="e47" onclick="onClick(this)"></td>
+                    <td class="field" id="e48" onclick="onClick(this)"></td>
+                    <td class="field" id="e49" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="field" id="e50" onclick="onClick(this)"></td>
+                    <td class="field" id="e51" onclick="onClick(this)"></td>
+                    <td class="field" id="e52" onclick="onClick(this)"></td>
+                    <td class="field" id="e53" onclick="onClick(this)"></td>
+                    <td class="field" id="e54" onclick="onClick(this)"></td>
+                    <td class="field" id="e55" onclick="onClick(this)"></td>
+                    <td class="field" id="e56" onclick="onClick(this)"></td>
+                    <td class="field" id="e57" onclick="onClick(this)"></td>
+                    <td class="field" id="e58" onclick="onClick(this)"></td>
+                    <td class="field" id="e59" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="field" id="e60" onclick="onClick(this)"></td>
+                    <td class="field" id="e61" onclick="onClick(this)"></td>
+                    <td class="field" id="e62" onclick="onClick(this)"></td>
+                    <td class="field" id="e63" onclick="onClick(this)"></td>
+                    <td class="field" id="e64" onclick="onClick(this)"></td>
+                    <td class="field" id="e65" onclick="onClick(this)"></td>
+                    <td class="field" id="e66" onclick="onClick(this)"></td>
+                    <td class="field" id="e67" onclick="onClick(this)"></td>
+                    <td class="field" id="e68" onclick="onClick(this)"></td>
+                    <td class="field" id="e69" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="field" id="e70" onclick="onClick(this)"></td>
+                    <td class="field" id="e71" onclick="onClick(this)"></td>
+                    <td class="field" id="e72" onclick="onClick(this)"></td>
+                    <td class="field" id="e73" onclick="onClick(this)"></td>
+                    <td class="field" id="e74" onclick="onClick(this)"></td>
+                    <td class="field" id="e75" onclick="onClick(this)"></td>
+                    <td class="field" id="e76" onclick="onClick(this)"></td>
+                    <td class="field" id="e77" onclick="onClick(this)"></td>
+                    <td class="field" id="e78" onclick="onClick(this)"></td>
+                    <td class="field" id="e79" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="field" id="e80" onclick="onClick(this)"></td>
+                    <td class="field" id="e81" onclick="onClick(this)"></td>
+                    <td class="field" id="e82" onclick="onClick(this)"></td>
+                    <td class="field" id="e83" onclick="onClick(this)"></td>
+                    <td class="field" id="e84" onclick="onClick(this)"></td>
+                    <td class="field" id="e85" onclick="onClick(this)"></td>
+                    <td class="field" id="e86" onclick="onClick(this)"></td>
+                    <td class="field" id="e87" onclick="onClick(this)"></td>
+                    <td class="field" id="e88" onclick="onClick(this)"></td>
+                    <td class="field" id="e89" onclick="onClick(this)"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="field" id="e90" onclick="onClick(this)"></td>
+                    <td class="field" id="e91" onclick="onClick(this)"></td>
+                    <td class="field" id="e92" onclick="onClick(this)"></td>
+                    <td class="field" id="e93" onclick="onClick(this)"></td>
+                    <td class="field" id="e94" onclick="onClick(this)"></td>
+                    <td class="field" id="e95" onclick="onClick(this)"></td>
+                    <td class="field" id="e96" onclick="onClick(this)"></td>
+                    <td class="field" id="e97" onclick="onClick(this)"></td>
+                    <td class="field" id="e98" onclick="onClick(this)"></td>
+                    <td class="field" id="e99" onclick="onClick(this)"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 {% endblock %}

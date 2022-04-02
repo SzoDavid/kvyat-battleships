@@ -3,5 +3,17 @@
 {% block title %}{% block pagetitle %}Top Players{% endblock %}{% endblock %}
 
 {% block content %}
-    <p>Here you can view the players ranked by their points</p>
+    <p>Here you can view the players ranked by their points</p><br>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Points</th>
+        </tr>
+        {% for UserData in top_list %}
+            <tr>
+                <td>{{ UserData.user.username }}</td>
+                <td>{{ UserData.points }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
