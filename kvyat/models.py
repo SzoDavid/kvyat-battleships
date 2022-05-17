@@ -24,4 +24,7 @@ class UserData(models.Model):
     def weeks_since_joined(self):
         return (timezone.now() - self.user.date_joined).days // 7
 
+    def weeks_since_joined(self):
+        return (timezone.now() - self.user.date_joined).days // 7
+
 
