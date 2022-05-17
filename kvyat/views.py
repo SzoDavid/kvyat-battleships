@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -5,17 +6,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
-from kvyat.models import UserData, Room, Field
+from kvyat.models import UserData
 
 
-def create(request):
-    context = {'selected': 'create'}
-    return render(request, 'kvyat/create.html', context)
+def home(request):
+    context = {'selected': 'home'}
+    return render(request, 'kvyat/home.html', context)
 
 
-def room(request, room_id):
-    context = {'room_id': room_id}
-    return render(request, 'kvyat/room.html', context)
+@login_required(login_url='/kvyat/login/')
+def room(request):
+    return render(request, 'kvyat/room.html')
 
 
 def profile(request, user_id):
@@ -30,11 +31,6 @@ def profile(request, user_id):
 def about(request):
     context = {'selected': 'about'}
     return render(request, 'kvyat/about.html', context)
-
-
-def creator(request):
-    context = {'selected': 'creator'}
-    return render(request, 'kvyat/creator.html', context)
 
 
 def contact(request):
@@ -76,7 +72,7 @@ def register_view(request):
         user = User.objects.create_user(username, email, password1)
         UserData.objects.create(user=user)
         login(request, user)
-        return redirect(reverse('kvyat:create'))
+        return redirect(reverse('kvyat:home'))
     else:
         return render(request, 'kvyat/register.html')
 
@@ -87,20 +83,20 @@ def login_user(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse('kvyat:create'))
+        return HttpResponseRedirect(reverse('kvyat:home'))
     else:
-        # Return an 'invalid login' error message.
-        return
+        return HttpResponseRedirect(reverse('kvyat:login'))
 
 
 def upload_points(request, user_id, guesses):
     user = get_object_or_404(User, pk=user_id)
     data = user.userdata_set.get(user=user)
-    data.gamesplayed += 1
+    data.games_played += 1
     data.guesses += guesses
-    return HttpResponseRedirect(reverse('kvyat:create'))
+    data.save()
+    return HttpResponseRedirect(reverse('kvyat:home'))
 
 
-def logout_user(request, user_id):
+def logout_user(request):
     logout(request)
-    return HttpResponseRedirect(reverse('kvyat:create'))
+    return HttpResponseRedirect(reverse('kvyat:home'))

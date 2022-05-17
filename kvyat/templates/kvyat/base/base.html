@@ -13,13 +13,12 @@
     <div id="sidebar">
         <h1>Kvyat</h1>
         <ul>
-            <li><p {% if selected == 'create' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:create' %}'">Create room</p></li>
+            <li><p {% if selected == 'home' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:home' %}'">Play</p></li>
             <li><p {% if selected == 'about' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:about' %}'">About</p></li>
-            <li><p {% if selected == 'creator' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:creator' %}'">Creator</p></li>
             <li><p {% if selected == 'contact' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:contact' %}'">Contact</p></li>
             {% if user.is_authenticated %}
             <li><p {% if selected == 'profile' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:profile' user.pk %}'">{{ user.username }}</p></li>
-            <li><p onclick="window.location.href = '{% url 'kvyat:logout_user' user.pk %}'">Log out</p></li>
+            <li><p onclick="window.location.href = '{% url 'kvyat:logout_user' %}'">Log out</p></li>
             {% else %}
             <li><p {% if selected == 'login' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:login' %}'">Login</p></li>
             {% endif %}

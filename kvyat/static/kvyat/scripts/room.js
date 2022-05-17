@@ -22,7 +22,7 @@ let model = {
                 view.displayHit(guess);
                 view.displayMessage("It's a hit!");
                 if (this.isSunk(ship)) {
-                    view.displayMessage("You sunk my battleship!");
+                    view.displayMessage("You sank my battleship!");
                     this.shipsSunk++;
                 }
                 return true;
@@ -44,10 +44,13 @@ let model = {
 
     generateShipLocations: function() {
         let locations;
+        let direction;
         for (let i = 0; i < this.numShips; i++) {
             do {
-                locations = this.generateShip();
-            } while (this.collision(locations));
+                let result = this.generateShip();
+                locations = result[0];
+                direction = result[1];
+            } while (this.collision(locations, direction));
             this.ships[i].locations = locations;
         }
         console.log("Ship table: ");
@@ -74,15 +77,20 @@ let model = {
                 newShipLocations.push((row + i) + "" + col);
             }
         }
-        return newShipLocations;
+        return [newShipLocations, direction];
     },
 
-    collision: function(locations) {
+    collision: function(locations, direction) {
         for (let i = 0; i < this.numShips; i++) {
             let ship = this.ships[i];
             for (let j = 0; j < locations.length; j++) {
-                if (ship.locations.indexOf(locations[j]) >= 0) {
-                    return true;
+                for (let k = 0; k < this.shipLength; k++) {
+                    let index
+                    if (direction === 1) index = j + k;
+                    else index = j + 10 * k;
+                    if (ship.locations.indexOf(locations[index]) >= 0) {
+                        return true;
+                    }
                 }
             }
         }
@@ -116,9 +124,9 @@ let controller = {
             this.guesses++;
             let hit = model.fire(location);
             if (hit && model.shipsSunk === model.numShips) {
-                view.displayMessage("You sunk all of my battleships in " + this.guesses + " tries.");
-                document.getElementById("guessInput").disabled = true;
-                document.getElementById("returnButton").disabled = false;
+                view.displayMessage("You sank all of my battleships in " + this.guesses + " tries.");
+                document.getElementById("guessInput").style.visibility = "collapse";
+                document.getElementById("returnButton").style.visibility = "visible";
             }
         }
     }
@@ -143,9 +151,7 @@ function answer(eventObj) {
     controller.processGuess(location);
 }
 
-function returnAction(eventObj) {
-    let url = "{% url 'myapp:upload_points' user.pk %}";
-    document.location.href = url + "/" + controller.guesses;
+function returnAction(base_url) {
+    document.location.href = base_url.replace('123', controller.guesses);
 }
-
 

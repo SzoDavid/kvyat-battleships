@@ -35,8 +35,8 @@ body {
 
 h1 {
     text-align: center;
-    font-weight: bolder;
-    font-size: 25px;
+    font-weight: bold;
+    font-size: 18px;
     color: cornflowerblue;
     margin-bottom: 25px;
     margin-left: auto;
@@ -44,8 +44,8 @@ h1 {
     text-shadow: 0 0 5px #00000010;
 }
 
-#inner-content {
-    width: min-content;
+.inner-content {
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -88,6 +88,7 @@ input[type=submit]:hover, button:hover {
 
 table {
     text-align: center;
+    cursor: crosshair;
 }
 
 td {
@@ -97,23 +98,40 @@ td {
     border-radius: 4px;
     width: 50px;
     height: 50px;
-    color: cornflowerblue;
 }
 
-.field {
-    background-color: #bae6ff99;
+th {
+    padding: 5px;
 }
 
-.field:hover {
+td:hover {
     background-color: #a9d5ee;
     border-radius: 6px;
 }
 
-#fields {
-    display: flex;
-    flex-direction: row;
+.hit, .hit:hover {
+    background-color: red;
 }
 
-#player {
-    padding-right: 40px;
+.miss, .miss:hover {
+    background-color: aqua;
+}
+
+
+
+#returnButton {
+    text-align: center;
+    line-height: 30px;
+    color: cornflowerblue;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: aliceblue;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px auto;
+    box-shadow: 0 0 10px #00000020;
+    visibility: collapse;
 }

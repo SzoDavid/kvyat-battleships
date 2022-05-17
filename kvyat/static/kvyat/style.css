@@ -50,7 +50,7 @@ body {
     horiz-align: center;
 }
 
-#sidebar p, .playButton {
+#sidebar p {
     text-align: center;
     line-height: 30px;
     color: cornflowerblue;
@@ -71,7 +71,7 @@ body {
 }
 
 #sidebar .selected {
-    background-color: aqua;
+    background-color: transparent;
 }
 
 #page {
@@ -106,6 +106,10 @@ body {
     box-shadow: 0 0 10px #00000055;
 }
 
+#content div {
+    width: 100%;
+}
+
 #content h2 {
     color: cornflowerblue;
     font-size: 25px;
@@ -136,4 +140,29 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 2px 15px 2px 5px;
+}
+
+th {
+    color: cornflowerblue;
+}
+
+.playButton {
+    text-align: center;
+    line-height: 30px;
+    color: cornflowerblue;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #bae6ff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px auto;
+    box-shadow: 0 0 10px #00000020;
+    width: 50%;
 }

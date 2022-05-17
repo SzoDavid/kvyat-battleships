@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block content %}
-    <div id="messageArea"></div>
-    <div id="guessInput">
+    <h1 id="messageArea"></h1>
+    <div id="guessInput" class="inner-content">
         <table>
             <tr>
                 <th></th>
@@ -21,75 +21,75 @@
             </tr>
             <tr>
                 <th>A</th>
-                <td><div id="00"></div></td>
-                <td><div id="01"></div></td>
-                <td><div id="02"></div></td>
-                <td><div id="03"></div></td>
-                <td><div id="04"></div></td>
-                <td><div id="05"></div></td>
-                <td><div id="06"></div></td>
+                <td id="00"></td>
+                <td id="01"></td>
+                <td id="02"></td>
+                <td id="03"></td>
+                <td id="04"></td>
+                <td id="05"></td>
+                <td id="06"></td>
             </tr>
             <tr>
                 <th>B</th>
-                <td><div id="10"></div></td>
-                <td><div id="11"></div></td>
-                <td><div id="12"></div></td>
-                <td><div id="13"></div></td>
-                <td><div id="14"></div></td>
-                <td><div id="15"></div></td>
-                <td><div id="16"></div></td>
+                <td id="10"></td>
+                <td id="11"></td>
+                <td id="12"></td>
+                <td id="13"></td>
+                <td id="14"></td>
+                <td id="15"></td>
+                <td id="16"></td>
             <tr>
                 <th>C</th>
-                <td><div id="20"></div></td>
-                <td><div id="21"></div></td>
-                <td><div id="22"></div></td>
-                <td><div id="23"></div></td>
-                <td><div id="24"></div></td>
-                <td><div id="25"></div></td>
-                <td><div id="26"></div></td>
+                <td id="20"></td>
+                <td id="21"></td>
+                <td id="22"></td>
+                <td id="23"></td>
+                <td id="24"></td>
+                <td id="25"></td>
+                <td id="26"></td>
             </tr>
             <tr>
                 <th>D</th>
-                <td><div id="30"></div></td>
-                <td><div id="31"></div></td>
-                <td><div id="32"></div></td>
-                <td><div id="33"></div></td>
-                <td><div id="34"></div></td>
-                <td><div id="35"></div></td>
-                <td><div id="36"></div></td>
+                <td id="30"></td>
+                <td id="31"></td>
+                <td id="32"></td>
+                <td id="33"></td>
+                <td id="34"></td>
+                <td id="35"></td>
+                <td id="36"></td>
             </tr>
             <tr>
-                <th>E</td>
-                <td><div id="40"></div></td>
-                <td><div id="41"></div></td>
-                <td><div id="42"></div></td>
-                <td><div id="43"></div></td>
-                <td><div id="44"></div></td>
-                <td><div id="45"></div></td>
-                <td><div id="46"></div></td>
+                <th>E</th>
+                <td id="40"></td>
+                <td id="41"></td>
+                <td id="42"></td>
+                <td id="43"></td>
+                <td id="44"></td>
+                <td id="45"></td>
+                <td id="46"></td>
             </tr>
             <tr>
-                <th>F</td>
-                <td><div id="50"></div></td>
-                <td><div id="51"></div></td>
-                <td><div id="52"></div></td>
-                <td><div id="53"></div></td>
-                <td><div id="54"></div></td>
-                <td><div id="55"></div></td>
-                <td><div id="56"></div></td>
+                <th>F</th>
+                <td id="50"></td>
+                <td id="51"></td>
+                <td id="52"></td>
+                <td id="53"></td>
+                <td id="54"></td>
+                <td id="55"></td>
+                <td id="56"></td>
             </tr>
             <tr>
-                <th>G</td>
-                <td><div id="60"></div></td>
-                <td><div id="61"></div></td>
-                <td><div id="62"></div></td>
-                <td><div id="63"></div></td>
-                <td><div id="64"></div></td>
-                <td><div id="65"></div></td>
-                <td><div id="66"></div></td>
+                <th>G</th>
+                <td id="60"></td>
+                <td id="61"></td>
+                <td id="62"></td>
+                <td id="63"></td>
+                <td id="64"></td>
+                <td id="65"></td>
+                <td id="66"></td>
             </tr>
         </table>
     </div>
-    <p class="returnButton" onclick="window.location.href = '{% url 'kvyat:upload_points' %}'">Return</p>
+    <p id="returnButton" onclick=returnAction("{% url 'kvyat:upload_points' user.pk 123 %}")>Return</p>
 
 {% endblock %}

@@ -5,10 +5,27 @@
 {% block content %}
     <div>
         <h2>Points:</h2>
-        <p>{{ profile_data.points }}</p>
-        <h2 class="next_title">Guesses made per games played:</h2>
-        <p>{{ profile_data.guesses }}/{{ profile_data.games_played }}</p>
+        <p>{{ profile_data.points_round }}</p>
         <h2 class="next_title">Weeks Since Joined:</h2>
         <p>{{ profile_data.weeks_since_joined }}</p>
+    </div>
+    <div>
+        <h2>Stats:</h2>
+        <table>
+            <tr>
+                <th>Games played:</th>
+                <td>{{ profile_data.games_played }}</td>
+            </tr>
+            <tr>
+                <th>Guesses:</th>
+                <td>{{ profile_data.guesses }}</td>
+            </tr>
+            <tr>
+                <th>Average guesses:</th>
+                <td>{{ profile_data.average_guesses }}</td>
+            </tr>
+        </table>
+        <br>
+        <p>Note: Your score will decrease over time. Keep playing!</p>
     </div>
 {% endblock %}

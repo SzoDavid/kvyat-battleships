@@ -12,8 +12,16 @@ class UserData(models.Model):
         return self.user.username
 
     def points(self):
-        return (self.guesses * 10) / (self.games_played + ((timezone.now() - self.user.date_joined).days / 14) + 1)
+        return (((49 * self.games_played) - self.guesses) * 10) / \
+               (self.games_played + ((timezone.now() - self.user.date_joined).days / 14) + 1)
+
+    def points_round(self):
+        return round(self.points())
+
+    def average_guesses(self):
+        return round((self.guesses / self.games_played), 2)
 
     def weeks_since_joined(self):
         return (timezone.now() - self.user.date_joined).days // 7
+
 
