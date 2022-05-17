@@ -14,7 +14,6 @@
         <h1>Kvyat</h1>
         <ul>
             <li><p {% if selected == 'create' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:create' %}'">Create room</p></li>
-            <li><p {% if selected == 'top' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:top' %}'">Top players</p></li>
             <li><p {% if selected == 'about' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:about' %}'">About</p></li>
             <li><p {% if selected == 'creator' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:creator' %}'">Creator</p></li>
             <li><p {% if selected == 'contact' %} class="selected" {% endif %} onclick="window.location.href = '{% url 'kvyat:contact' %}'">Contact</p></li>

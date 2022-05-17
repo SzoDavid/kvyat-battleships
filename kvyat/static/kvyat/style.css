@@ -50,7 +50,7 @@ body {
     horiz-align: center;
 }
 
-#sidebar p {
+#sidebar p, .playButton {
     text-align: center;
     line-height: 30px;
     color: cornflowerblue;
